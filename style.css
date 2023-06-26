@@ -1,0 +1,57 @@
+.body {
+    background-color: rgb(240, 234, 178);
+    font-family: sans-serif;
+    font-size:x-large;
+    padding: 20px;
+}
+.logo {
+    background-image: url(https://www.gasanova.co.za/wp-content/uploads/2017/08/client-logo-pizza-perfect-logo-01.png);
+}
+.small_pizza {
+    background-color: rgb(96, 245, 96);
+    flex: 1;
+}
+
+.medium_pizza {
+    background-color: rgb(248, 193, 91);
+    flex: 1;
+}  
+
+.large_pizza {
+    background-color: rgb(255, 60, 60);
+    flex: 1;
+}
+
+.contacts {
+    background-color: rgb(133, 120, 120);
+}
+
+.pizza {
+    border: 2px solid grey;
+    padding: 2em;
+    margin: 1em;
+    border-radius: 1em;
+}
+
+@media (min-width: 960px) {
+    .pizzas {
+        display: flex;
+    }
+}
+
+.hr {
+    width: 5px;
+     color: chocolate;
+}
+.text {
+    text-align: center;
+}
+
+.pic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;    
+    }
+.cart {
+    background-color: rgb(169, 206, 221);    
+}
