@@ -7,11 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfect Pizza</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
 </head>
 
-<body class="body">
+<body>
     <h1 class="text"><strong>Perfect Pizza</strong></h1>
     <img src="https://www.gasanova.co.za/wp-content/uploads/2017/08/client-logo-pizza-perfect-logo-01.png"
         alt="client-logo-pizza-perfect-logo-01" width="350px" class="pic">
@@ -19,82 +18,42 @@
     <div
         x-data="{small:0, medium:0, large:0, Grandtotal:0, get total(){ return (this.small * 19.99 + this.medium * 49.99 + this.large * 79.99).toFixed(2)}, GrandTotal:0, checkout: false, paid:''}">
 
-        <div class="cart pizza" x-show="small != 0 || medium != 0 || large != 0">
-
-            <!-- <template x-if="small > 0">
-                Small:
-                <template x-if="!checkout">
-                  <button @click="small++">+</button> </template>
-                  <span x-text="small"></span>
-                <template x-if="!checkout">
-                    <button @click="small--">-</button>
-                </template>
-                <span>Price: R<span x-text="(small * 19.99).toFixed(2)"></span></span>
-                </template> -->
-
+        <div class="cart pizza text" x-show="small != 0 || medium != 0 || large != 0">
             <div x-show="small > 0">
                 Small: <button @click="small++">+</button>
                 <span x-text="small"></span>
                 <button @click="small--">-</button>
                 <span>Price: R<span x-text="(small * 19.99).toFixed(2)"></span></span>
-
             </div>
-
-
             <br>
-            <!-- <template x-if="medium > 0">
-                Medium:
-                <template x-if="!checkout">
-                  <button @click="medium++">+</button> </template
-                ><span x-text="medium"></span
-                ><template x-if="!checkout"
-                  ><button @click="medium--">-</button></template
-                >
-                <span>Price: R<span x-text="(medium * 49.99).toFixed(2)"></span></span>
-                </template> -->
-
             <div x-show="medium > 0">
                 Medium: <button @click="medium++">+</button>
                 <span x-text="medium"></span>
                 <button @click="medium--">-</button>
                 <span>Price: R<span x-text="(medium * 49.99).toFixed(2)"></span></span>
-
             </div>
             <br>
-            <!-- <template x-if="large > 0">
-                Large:
-                <template x-if="!checkout">
-                  <button @click="large++">+</button> </template
-                ><span x-text="large"></span
-                ><template x-if="!checkout"
-                  ><button @click="large--">-</button></template
-                >
-                <span>Price: R<span x-text="(large * 79.99).toFixed(2)"></span></span>
-                </div> -->
-
             <div x-show="large > 0">
                 Large: <button @click="large++">+</button>
                 <span x-text="large"></span>
                 <button @click="large--">-</button>
                 <span>Price: R<span x-text="(large * 79.99).toFixed(2)"></span></span>
-
             </div>
             <br>
             <span>Total: R<span
                     x-text="((small * 19.99) + (medium * 49.99) + (large * 79.99)).toFixed(2)"></span></span>
             </template>
-
+            <br>
             <template x-if="!checkout">
                 <button @click="checkout=!checkout">Checkout</button>
             </template>
             <template x-if="checkout">
-                <label>Amount received from customer: R<input type="number" min="0" step="0.00"
-                        x-model="paid" /></label>
+                <label>Amount: R<input class="input" type="number" min="0" step="0.00"
+                        x-model="paid"></label>
             </template>
             <template x-if="paid == total && checkout">
 
                 <span>
-                    <div style="color: green">Enjoy your pizzas! </div>
                     <button @click="small=0; medium=0; large=0; checkout=false;">
                         Complete Order
                     </button>
@@ -102,77 +61,70 @@
             </template>
             <template x-if="(parseInt(paid) < total && paid != total && checkout)">
                 <span>
-                    <div style="border: 1px solid rgb(204, 3, 3);">
-                        <h2><strong>This is not enough money</strong></h2>
-
-
+                    <div>
+                        <h2 class="insufficient"><strong>Insufficient funds</strong></h2>
+                    
                         <button @click="small=0; medium=0; large=0; checkout=false;">
-                            <div style="color: #f10a0a;"> Exit-Cart
-
-                            </div>
-
+                            <div class="insufficient">Exit Cart</div>
                         </button>
                 </span>
             </template>
             <template x-if="parseInt(paid) > total && checkout">
                 <span>
-                    <div style="color: rgb(17, 238, 54)">
-                        Enjoy your pizzas
+                    <h2 class="enjoy"><strong>Enjoy Your Pizzas</strong></h2>
                 </span>
-        </div>
-        <button @click="small=0; medium=0; large=0; checkout=false; paid=''">
-            Complete the Order
-        </button>
-        </span>
-        </template>
-
-    </div>
-
-    <div class="container mt-5">
-
+                <button @click="small=0; medium=0; large=0; checkout=false; paid=''">
+                 Complete Order
+                </button>
+                </span>
+                </template>
+            </div>
+    
         <div class="pizzas">
             <section class="pizza small_pizza">
                 <h2 class="text">Small Pizza</h2>
                 <h4 class="text">R19.99</h4>
                 <img src="https://pngimg.com/uploads/pizza/pizza_PNG44071.png" width="100" class="pic">
-                <p>
-                    3 Cheese
-                    Mozzarella, Cheddar & Feta Cheese
-                    Ham & Bacon
-                    Smoked Ham & Bacon
-                    BBQ Chicken
-                    Chicken, Green Peppers, Onion & BBQ Sauce</p>
-                <button style="text-align: center;" @click="small++">BUY</button>
+                <ul>
+                    <li>3 Cheese</li>
+                    <li>Ham & Bacon</li>
+                    <li>BBQ Chicken</li>
+                </ul>
+                <div class="text">
+                <button @click="small++">Add to Cart</button>
+                </div>
             </section>
 
             <section class="pizza medium_pizza">
                 <h2 class="text">Medium Pizza</h2>
                 <h4 class="text">R49.99</h4>
                 <img src="https://pngimg.com/uploads/pizza/pizza_PNG44092.png" width="175" class="pic">
-                <p>
-                    Pepperoni
-                    American Pepperoni
-                    Chicken Mayo & Bacon
-                    Chicken, Mayo, Bacon & Cheddar Cheese
-                    BBQ Chicken & Bacon
-                </p>
-                <button style="text-align: center;" @click="medium++">BUY</button>
+                <ul>
+                    <li>Pepperoni</li>
+                    <li>Chicken Mayo</li>
+                    <li>BBQ Chicken & Bacon</li>
+                </ul>
+                <div class="text">
+                <button @click="medium++">Add to Cart</button>
+                </div>
             </section>
 
             <section class="pizza large_pizza">
                 <h2 class="text">Large Pizza</h2>
                 <h4 class="text">R79.99</h4>
                 <img src="https://pngimg.com/uploads/pizza/pizza_PNG7132.png" width="200" class="pic">
-                <p>
-                    Bacon & Rib Honey Mustard
-                    Pork Spare Rib, Smoky Bacon, Onions, Cheddar Cheese & Honey Mustard Sauce
-                    EPIC Caribbean
-                </p>
-                <button style="text-align: center;" @click="large++">BUY</button>
+                <ul>
+                    <li>Bacon & Rib Honey Mustard</li>
+                    <li>Pork Spare Rib</li>
+                    <li>EPIC Caribbean</li>
+                </ul>
+                <div class="text">
+                <button @click="large++">Add to Cart</button>
+                </div>
             </section>
         </div>
         <section class="pizza contacts">
-            <h3>Contact Details</h3>
+            <h2>Contact Details</h2>
             <div>call us on: 011 097 3749 </div>
             <div>us an email on: pizza@perfectpizza.co.za </div>
             <div>find us at: 101 Pizza Street, Takeaway Town</div>

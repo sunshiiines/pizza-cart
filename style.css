@@ -1,8 +1,25 @@
-.body {
-    background-color: rgb(240, 234, 178);
+body {
+    background-color: rgb(241, 232, 151);
     font-family: sans-serif;
     font-size:x-large;
     padding: 20px;
+}
+button {
+    background-color: rgb(98, 100, 235);
+    color: bisque;
+    border: 2px solid rgb(68, 2, 88);
+    border-radius: 1em;
+    padding: 0.5em;
+}
+.input {
+    margin: 0.5em;
+    border: brown;
+}
+.enjoy {
+    color: rgb(66, 197, 15);
+}
+.insufficient {
+    color: red;
 }
 .logo {
     background-image: url(https://www.gasanova.co.za/wp-content/uploads/2017/08/client-logo-pizza-perfect-logo-01.png);
@@ -27,7 +44,7 @@
 }
 
 .pizza {
-    border: 2px solid grey;
+    border: 2px solid rgb(71, 66, 66);
     padding: 2em;
     margin: 1em;
     border-radius: 1em;
@@ -37,11 +54,6 @@
     .pizzas {
         display: flex;
     }
-}
-
-.hr {
-    width: 5px;
-     color: chocolate;
 }
 .text {
     text-align: center;
